@@ -60,6 +60,18 @@ $?
 ### Here document
 1. execute command silently in a row
 2. format multiple-line message
+```bash
+cat <<End-of-message
+------------------------------
+\$1 :   tag to match
+[-s:]   set the directory of .md files
+[-l ]   list files
+[-n ]   create a new markdown file
+[-w ]   WRITE mode, default READ mode
+[-f ]   open markdown folder
+------------------------------
+End-of-message
+```
 
 ### Substitution operator[:link:](https://learning.oreilly.com/videos/bash-scripting-fundamentals/9780134541730/9780134541730-BSHF_03_01)
 <img src="images/substitution_operator_examples.png" width="600"/>
