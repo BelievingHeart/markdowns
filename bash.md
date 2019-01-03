@@ -246,3 +246,22 @@ do
     esac
 done
 ```
+
+## Utilities
+1. grep: General Regular Expression Parser
+   - Usage: output all the lines that match ...
+   ![](images/grep_commands.png)
+2. test: A build-in utility in bash
+   - Usage:
+   ![](images/test_commands.png)
+   - Using double square brackets
+   ![](images/using_double_square_brackets_test.png)
+3. cut and sort
+```bash
+cut -f 3 -d : /etc/passwd #output column 3 of every line. : is column deliminator
+sort /etc/passwd    #sort lines
+cut -f 3 -d : /etc/passwd | sort -n #sort the filtered lines numerically
+du | sort -rn #du is Disk Usage. Sort subfolder in reverse numeric order
+sort -n -k3 -t : /etc/passwd # Sort lines in numeric order on column 3
+
+```

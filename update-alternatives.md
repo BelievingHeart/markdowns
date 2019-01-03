@@ -11,7 +11,7 @@ sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-8 800 --slave /
 ```
 1. Switch between alternatives
 ```txt
-sudo update-alternatives --config
+sudo update-alternatives --config gcc
 There are 2 choices for the alternative gcc (providing /usr/bin/gcc).
 
   Selection    Path            Priority   Status

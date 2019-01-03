@@ -3,7 +3,7 @@
 1. Types of gpuMat that are efficient for a GPU to compute
 - Channels: 1 or 4
 - Depths:   char or float, no double
-  - For memory efficiency, a 3 channel image is usually spilt up to 3 images and have functions worked on each of them
+  - For memory efficiency, a 3 channel image is usually spilt up to 3 images and have functions worked on each of them[:link:](src/cvCUDAstream.md)
   - If the operation doesn't consider neighbors, reshape it into single channel image.
 2. Never use arithmetic operators in a row
 - Memory allocation in GPU is extreamly expensive. Do operations in place if possible.
@@ -42,8 +42,8 @@ gpu::add(b.t1, C1, b.t1);
 4. Syncronization Model
 - [Barrier](https://www.youtube.com/watch?v=6r5FJLqcdqY&list=PLGvfHSgImk4aweyWlhBXNF6XISY3um82_&index=85  )
 5. Global Memory Access
-- [coalescence](https://www.youtube.com/watch?v=mLxZyWOI340&list=PLGvfHSgImk4aweyWlhBXNF6XISY3um82_&index=97): If adjacent threads read or write to very close memory, that's of good coalescence
-- NOTE: **Adjacent refers only to x direction**
+- [coalescence](https://www.youtube.com/watch?v=mLxZyWOI340&list=PLGvfHSgImk4aweyWlhBXNF6XISY3um82_&index=97): If adjacent threads read and write to very close memory, that's of good coalescence
+- NOTE: **Adjacent refers only to x direction**, this means as thread index increment 1 step in x direction, ideally the access of memory should also increment only 1 step.![](images/coalescence.png)
 - Strided, when strides are very big => random access => bad coalescence
 6. How to excecute a kernel
 ```c
@@ -61,14 +61,36 @@ kernel<<<BLOCK_DIMS, TREAD_DIMS, SIZE_OF_SHARED_MEM>>>(args...)
 - Decrease time spent on memory operations
 - Coalesce global memory access
 - Avoid thread divergence
-10. Performance Benchmark: [Bandwidth Measurement](https://www.youtube.com/watch?v=mT_WVr8FhT4&index=239&list=PLGvfHSgImk4aweyWlhBXNF6XISY3um82_)
+10. Memory efficiency: [Glabal Memory Bandwidth Measurement](https://www.youtube.com/watch?v=mT_WVr8FhT4&index=239&list=PLGvfHSgImk4aweyWlhBXNF6XISY3um82_)
 - 40-60% : Okay
 - 60-75% : Good
 - \>75   : Excellent
-11. [How to raise Bandwidth Rate](https://www.youtube.com/watch?v=FbKWHHIHpWM&index=242&list=PLGvfHSgImk4aweyWlhBXNF6XISY3um82_)
-- Bandwidth rate suffers from ramdom memory accessing
-
+11. [How to raise DRAM Utilization, memory efficiency or bandwidth](https://www.youtube.com/watch?v=FbKWHHIHpWM&index=242&list=PLGvfHSgImk4aweyWlhBXNF6XISY3um82_)
+- Increase useful bytes delivered => decrease unnecessary bytes transactions => coalescent memery accessing
+- [Decrease average latency](https://www.youtube.com/watch?v=w0BaJg0PB2A&index=254&list=PLGvfHSgImk4aweyWlhBXNF6XISY3um82_)
+  - [Minimize time waiting at barriers](https://www.youtube.com/watch?v=JLrGhNJMamE&index=263&list=PLGvfHSgImk4aweyWlhBXNF6XISY3um82_)
+  - [Minimize thread divergence](https://www.youtube.com/watch?v=jAo4nrLk2Tk&list=PLGvfHSgImk4aweyWlhBXNF6XISY3um82_&index=280)
+12.  How to get GPU params
+- Use `deviceQuery` that comes with Nvidia samples
+- [Full query list for all compute capabilities](https://docs.nvidia.com/cuda/cuda-c-programming-guide/index.html#compute-capabilities)
+13. [CUDA runtime analysis](https://www.youtube.com/watch?v=c0mDyjgTKqc&list=PLGvfHSgImk4aweyWlhBXNF6XISY3um82_&index=245)
+- Use `nsight` or `nvvp` that comes with CUDA toolkits
+14. [Usage of Stream](https://www.youtube.com/watch?v=C7kI3xVRkcU&list=PLGvfHSgImk4aweyWlhBXNF6XISY3um82_&index=285)
 ## CUDA Terminologies
 1. Thread blocks: software term that define by user
 2. SM: Stream Multiprocessors, hardware term
 3. [Work Complexity and Step Complexity](https://www.youtube.com/watch?v=V8TTrUdfpIY&list=PLGvfHSgImk4aweyWlhBXNF6XISY3um82_&index=114)
+4. [Warp, SIMD, SIMT](https://www.youtube.com/watch?v=UCS8SAyT95s&list=PLGvfHSgImk4aweyWlhBXNF6XISY3um82_&index=267)
+5. [Occupancy](https://www.youtube.com/watch?v=2NGQvnT_3gU&index=257&list=PLGvfHSgImk4aweyWlhBXNF6XISY3um82_)
+6. [Page-locked/Pinned memory](https://www.youtube.com/watch?v=m9eGhIBJRUg&index=282&list=PLGvfHSgImk4aweyWlhBXNF6XISY3um82_)
+7. [CUDA Stream](https://www.youtube.com/watch?v=0t6URV6DfkU&list=PLGvfHSgImk4aweyWlhBXNF6XISY3um82_&index=283)
+
+## CUDA best practices 
+1. [Prefer float over double](https://www.youtube.com/watch?v=mtGYfzpoCnQ&list=PLGvfHSgImk4aweyWlhBXNF6XISY3um82_&index=281)
+- Bad: `float a = b + 2.5`
+- Good: `float a = b + 2.5f`
+- Bad: `sin()`
+- Good: `__sin()` 
+2. Prefer `cudaHostMalloc()` over `malloc()` to avoid extra copy when transfered to GPU[:link:](https://www.youtube.com/watch?v=m9eGhIBJRUg&index=282&list=PLGvfHSgImk4aweyWlhBXNF6XISY3um82_)
+3. $\uparrow$Or use `cudaHostRegister()` to pin memory that is regularly allocated to avoid extra copy
+4. $\uparrow$Use `cudaMemcpyAsync()` to transfer **pinned** memory and unblock CPU.
