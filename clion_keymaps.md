@@ -41,3 +41,6 @@
 - Column Selection Mode 	Ctrl + Alt + S
 - Settings 					Ctrl + ,
 
+## VCS
+- Commit    Ctrl + Shift + C
+- Push      Ctrl + Shift + P

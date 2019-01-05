@@ -1,4 +1,4 @@
-[//]: # (#clang++ #llvm #clang-tidy)
+[//]: # (#clang++ #llvm #clang-tidy #clang-format)
 ## Install
 1. llvm on ubuntu 18.04
 ```bash
@@ -15,3 +15,14 @@ sudo apt-get install clang-7 clang-tools-7 clang-tidy-7 libclang-common-7-dev li
  - Clang-tidy can only fix one translation unit
  - If you want to fix a project, use **run-clang-tidy**[:link:](https://github.com/KratosMultiphysics/Kratos/wiki/How-to-use-Clang-Tidy-to-automatically-correct-code)
  - NOTE: **do not** specify *-header-filter=.\** when some headers are included more than once in your project
+
+## Clang-format
+1. .clang-format file
+- clang-format will both look for `.clang-format` in the directory of input cpp file and its parent directory
+```yaml
+Language: Cpp
+    IndentWidth: 4
+    ReflowComments: false
+    AlignTrailingComments: false
+    ColumnLimit: 300
+```
