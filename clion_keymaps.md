@@ -44,3 +44,4 @@
 ## VCS
 - Commit    Ctrl + Shift + C
 - Push      Ctrl + Shift + P
+- Open On Github    Ctrl + Shift + O
