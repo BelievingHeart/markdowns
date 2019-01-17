@@ -6,3 +6,7 @@
 ![](IMAGE_HERE)
 ```
 
+2. link to a header
+```
+[show text](#all-connected-by-dash)
+```

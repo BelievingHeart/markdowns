@@ -14,6 +14,7 @@ git checkout 1bf0f0 #checkout specific commit by hash
 git checkout master #get back to normal state
 git checkout version-1.2 #checkout tag 'version-1.2'
 git checkout -b newfeature #create and checkout branch newfeature
+git checkout hello.cpp #unstaged hello.cpp
 ```
 
 ## mv rm
@@ -41,6 +42,7 @@ git config core.editor<editor_name>
 ```
 
 ## commit
+### commit means that all of your current work has been tested
 ```git
 git commit --amend #commit to previous commit so that you can change previous commit msg
 
@@ -107,6 +109,34 @@ $ git submodule update --init
 git reset HEAD some_file
 git reset #undo add .
 git reset --hard #undo modifications before add
+```
+
+## stash
+stash allow you to save current work without commiting
+```git
+git stash [save <message>]
+git stash list
+git stash drop <stash-id> #discard stash
+git stash pop <stash-id> #merge stash into current commit
+git stash show -p <stash-id> #show difference from stash
+```
+
+## clean
+clear any untracked file
+```git
+git clean -df #directories + force
+```
+
+## reflog
+[can go back to lost commits](https://www.youtube.com/watch?v=FdZecVxzJbk)18:00
+```git
+git relog
+```
+
+## revert
+[copy a commit to head](https://www.youtube.com/watch?v=FdZecVxzJbk)19:50
+```
+git rever <git-hash>
 ```
 
 ## gitignore
