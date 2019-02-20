@@ -37,3 +37,7 @@ cv::Mat laplacian_kernel = (cv::Mat_<float>(3, 3) << 1, 1, 1, 1, -8, 1, 1, 1, 1)
 
 ## SURF SIFT ... descriptor matching
 1. it is important to throw away ambiguous matchs, that is, when the closest match and the second closest match is very close. Otherwise, matches will respond even if there is no targets at scene.
+
+## multiplication
+1. matrix multiplication: *
+2. element-wise: A.mul(B)

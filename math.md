@@ -19,19 +19,18 @@ $$
 \nabla_{\overrightarrow{w}}f(\overrightarrow{v})=\nabla{f}(\overrightarrow{v})\cdotp{\overrightarrow{w}}
 $$
 - This interprets as: the derivative of *f* at point $\overrightarrow{v}$ along the direction of $\overrightarrow{w}$
-- where $\overrightarrow{v}$ is a unit vector in the input space
+- where $\overrightarrow{w}$ is a unit vector in the input space
 5. Multivariable chain rule:[:link:](https://www.youtube.com/watch?v=qZlBjnC3iro&list=PLSQl0a2vh4HC5feHa6Rc5c0wbRTx56nF7&index=30)
 - What is change rate of *f* with respect to the change of *t* ?
 $$
 \frac{df(x(t),y(t))}{dt}=\frac{\partial{f}}{\partial{x}}\frac{dx}{dt}+\frac{\partial{f}}{\partial{y}}\frac{dy}{dt}
 $$ 
 6. The Laplacian is sort of analog to second order derivatives for **scalar value multivariable functions**:[:link:](https://www.youtube.com/watch?v=EW08rD-GFh0&list=PLSQl0a2vh4HC5feHa6Rc5c0wbRTx56nF7&index=65)
-- It measures how much a point is being a local minimum
 - It measures the concavity of a point, that is, whether it is **on average** greater or less than its neighbors. For example, when positive, the Laplacian indicates the point is within a upward concave[:link:](https://www.youtube.com/watch?v=JQSC0lCPG24&list=PLSQl0a2vh4HC5feHa6Rc5c0wbRTx56nF7&index=68)
 $$
 \triangle{f(x,y)} = div(\nabla{\cdotp}f(x,y))=\nabla{\cdotp}\nabla{}f(x,y)=\begin{bmatrix}\frac{\partial{}}{\partial{x}}\\\\\frac{\partial{}}{\partial{y}}\end{bmatrix}\cdotp{}\begin{bmatrix}\frac{\partial{}}{\partial{x}}\\\\\frac{\partial{}}{\partial{y}}\end{bmatrix}f(x,y)=\frac{\partial{}^2f}{\partial{x^2}}+\frac{\partial{}^2f}{\partial{y^2}}
 $$
-7. Local linear approximation[:link:](https://www.youtube.com/watch?v=o7_zS7Bx2VA&list=PLSQl0a2vh4HC5feHa6Rc5c0wbRTx56nF7&index=77)
+1. Local linear approximation[:link:](https://www.youtube.com/watch?v=o7_zS7Bx2VA&list=PLSQl0a2vh4HC5feHa6Rc5c0wbRTx56nF7&index=77)
 + For scalar value function, the loacl neighbor of _$f$_ at _$X_0$_ can be approximated by the sum of _$f(X_0)$_ and the gradient at _$X_0$_ times the shift _$h$_
 $$
 L(X_0+h) = f(X_0)+\nabla{f(X_0)}\cdotp{h}

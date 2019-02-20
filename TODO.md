@@ -1,2 +1,2 @@
 [//]: # (#todo)
-1. How to utilize cpu sse avx
+1. HDR

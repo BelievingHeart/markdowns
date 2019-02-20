@@ -7,10 +7,16 @@
 2. how to replace `needed_cv_libs.py`: `\b(\w+)\b -> "$1",`
 
 ## Cmake inputs
+1. linux
 ```
 cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_INSTALL_PREFIX=/usr/local -DOPENCV_EXTRA_MODULES_PATH=/home/afterburner/clones/opencv_contrib/modules -DPYTHON3_EXECUTABLE=/usr/local/bin/python3 -DBUILD_opencv_python2=OFF -DBUILD_opencv_python3=ON -DINSTALL_PYTHON_EXAMPLES=OFF -DINSTALL_C_EXAMPLES=OFF -DOPENCV_ENABLE_NONFREE=ON -DWITH_QT=ON -DBUILD_EXAMPLES=OFF -DWITH_CUDA=ON -DBUILD_opencv_cudacodec=OFF -DWITH_OPENCL=ON -DBUILD_TBB=ON MKL_WITH_TBB=ON WITH_TBB=ON  ..
 ```
 MKL_ROOT_DIR=/home/afterburner/intel/compilers_and_libraries_2019.1.144/linux/mkl
+
+2. mac
+```
+cmake -DCMAKE_BUILD_TYPE=Debug -DOPENCV_EXTRA_MODULES_PATH=$HOME/clones/opencv_contrib/modules -DPYTHON3_EXECUTABLE=/usr/local/bin/python3 -DBUILD_opencv_python2=OFF -DBUILD_opencv_python3=ON -DINSTALL_PYTHON_EXAMPLES=OFF -DINSTALL_C_EXAMPLES=OFF -DOPENCV_ENABLE_NONFREE=ON -DWITH_QT=ON -DBUILD_EXAMPLES=OFF -DWITH_OPENCL=ON -DBUILD_TBB=ON -DMKL_WITH_TBB=ON -DWITH_TBB=ON  -DMKL_ROOT_DIR=$HOME/intel/mkl -DMKL_INCLUDE_DIRS=$HOME/intel/mkl/include -DLAPACK_INCLUDE_DIR=$HOME/intel/mkl/include ..
+```
 
 ## Trouble shooting
 1. WITH_CUDA -- Ubuntu 18.04 [reference](https://nicolas-bettenburg.com/2018-08-18-ubuntu-18-04-deep-learning-box)
