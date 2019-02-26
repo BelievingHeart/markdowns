@@ -2,6 +2,7 @@
 ## accounts
 gamesst
 higgin
+168kaicom
 
 ## books
 1. Algorithms: 24-part Lecture Series
