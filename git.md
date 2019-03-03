@@ -136,7 +136,7 @@ git relog
 ## revert
 [copy a commit to head](https://www.youtube.com/watch?v=FdZecVxzJbk)19:50
 ```
-git rever <git-hash>
+git revert <git-hash>
 ```
 
 ## gitignore
