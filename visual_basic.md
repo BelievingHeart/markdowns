@@ -176,3 +176,55 @@ players.sort(function(a, b) a.x.compareTo(b.x))
 ```vb
 newPlayers = players.OrderBy(Function(a) a.x).ToList()
 ```
+
+## select
+- Description: select a subset of a collection(or container)
+```vb
+        ' Player has 3 members: x,y,z
+        Dim players As New List(Of Player)
+        Const numPlayer As Integer = 10
+
+        for i As Integer = 0 To numPlayer
+            players.Add(New Player(i, 10 - i, 0))
+        Next
+
+        ' "where" is used to filter samples "select" is used to filter features
+        Dim players_subset = From p As Player In players
+                where p.y > 5
+                Select p.x, p.y
+                Order by p.x ' sort with "Order by" keyword
+
+        for Each p in players_subset
+            console.WriteLine(p.y)
+        Next
+```
+
+## lambda expression
+```vb
+Dim say = Sub(message As String)
+                MessageBox.Show(message)
+            End Sub
+say("hello")
+```
+
+## generic programming
+1. class
+```vb
+Public Class PriorityQueue(of T)
+...
+End Class
+```
+2. function
+```vb
+Public Sub say(of T)(ByRef t1 As T, ByRef t2 As T)
+...
+End Sub
+```
+
+## overide method
+```vb
+Public Overrides Function ToString() As String
+' String is of ref type, the returned thing is a reference
+    return firstName & " " & lastName
+End Function
+```
