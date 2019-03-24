@@ -28,6 +28,8 @@ Dim arr(10) As Integer
 arr(1) = 100
 Redim Preserve arr(50) ' Preserve original values
 Redim arr(0 TO 4) ' throws away original values
+
+Dim members = new Strings(){"Bob", "Jone", "Barber"} ' immediate initialization
 ```
 
 7. Stack
@@ -156,6 +158,26 @@ Public overrides Sub funcName()
 
 End Sub
 ```
+
+21. abstract vs interface, inherits vs implements
+- `abstract` and `interface` in C++ refers to the same thing, `c++ abstract`. While in vb, `abstract` == `c++ non-pure abstract`, `interface` == `c++ pure abstract`
+- In vb, a class *inherits* from `abstract` class and *implements* `interface` class
+- Both *inherits* and *interface* create a child class that can be bound to a parent class.
+
+22. string formatting
+    ```vb
+        $"This is a number: {value}"
+    ```
+
+23. ternary expression
+    ```vb
+        Dim isGrownUp As Boolean = if(age > 18, true, false)
+    ```
+
+24. type checking
+    ```vb
+    if TypeOf Me.ActiveControl is Button Then Me.Close()
+    ```
 
 
 ## file parsing

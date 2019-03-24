@@ -4,3 +4,5 @@
 2. navigate line: <C> + L
 3. reformat : <A> + F
 4. close project : <C> + `
+5. navigate back : <A> + left
+6. hightlight usages: <C> + H
