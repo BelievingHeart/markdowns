@@ -13,3 +13,4 @@
 11. ReSharper_MoveUp: Ctrl + Alt + up
 12. ReSharper_MoveDown: Ctrl + Alt + down
 13. ReSharper_ExtractMethod: Ctrl + M
+14. navigate backward: Ctrl + -
