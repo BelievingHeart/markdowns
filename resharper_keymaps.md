@@ -14,3 +14,5 @@
 12. ReSharper_MoveDown: Ctrl + Alt + down
 13. ReSharper_ExtractMethod: Ctrl + M
 14. navigate backward: Ctrl + -
+15. reformat: Alt + F
+16. fullscreen: F2
