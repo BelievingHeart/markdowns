@@ -1,7 +1,7 @@
 [//]: # (#resharper keymaps)
 1. ReSharper_GotoSymbol: Alt + S
 2. ReSharper_GotoType: Alt + E
-3. ReSharper_SwitchHeaderSource： Alt + ;
+3. ReSharper_SwitchHeaderSource： Ctrl + ;
 4. Edit.PreviousMethod : Alt + up
 4. Edit.NextMethod : Alt + down
 5. ReSharper_OptimizeReferences: Alt + O
@@ -16,3 +16,4 @@
 14. navigate backward: Ctrl + -
 15. reformat: Alt + F
 16. fullscreen: F2
+17. cleanup code: Alt + C
