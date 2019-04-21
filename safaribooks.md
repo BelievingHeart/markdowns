@@ -7,6 +7,7 @@ mantlelmf
 alinawong357
 stepler
 tianlao7
+mianajun
 
 ## books
 1. Algorithms: 24-part Lecture Series
