@@ -8,6 +8,7 @@ alinawong357
 stepler
 tianlao7
 mianajun
+reeher
 
 ## books
 1. Algorithms: 24-part Lecture Series
