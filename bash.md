@@ -22,7 +22,7 @@ echo $HELLO
 - This will block the script process and wait for a usr input
 
 ### Extracting from variables
-1. $1, $2 ...
+1. `$1, $2` ...
 - Extract fixed-position arguments from within bash script
 
 2. using **for** with **list**
